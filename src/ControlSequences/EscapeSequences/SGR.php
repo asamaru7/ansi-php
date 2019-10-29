@@ -8,16 +8,20 @@
  * of the GRAPHIC RENDITION COMBINATION MODE (GRCM). Each graphic
  * rendition aspect is specified by a parameter value
  */
+
 namespace Bramus\Ansi\ControlSequences\EscapeSequences;
+
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
+use Bramus\Ansi\ControlSequences\Traits\HasParameterBytes;
 
 class SGR extends Base
 {
     // This EscapeSequence has ParameterByte(s)
-    use \Bramus\Ansi\ControlSequences\Traits\HasParameterBytes;
+    use HasParameterBytes;
 
     /**
      * SGR - SELECT GRAPHIC RENDITION
-     * @param mixed   $parameterBytes The Parameter Bytes
+     * @param mixed $parameterBytes The Parameter Bytes
      */
     public function __construct($parameterBytes = null)
     {
@@ -31,7 +35,7 @@ class SGR extends Base
 
         // Call Parent Constructor (which will store finalByte)
         parent::__construct(
-            \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte::SGR
+            FinalByte::SGR
         );
     }
 }

@@ -7,16 +7,20 @@
  * to be put into the erased state, depending on the parameter values
  *
  */
+
 namespace Bramus\Ansi\ControlSequences\EscapeSequences;
+
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
+use Bramus\Ansi\ControlSequences\Traits\HasParameterBytes;
 
 class EL extends Base
 {
     // This EscapeSequence has ParameterByte(s)
-    use \Bramus\Ansi\ControlSequences\Traits\HasParameterBytes;
+    use HasParameterBytes;
 
     /**
      * EL - ERASE IN LINE
-     * @param mixed   $parameterBytes The Parameter Bytes
+     * @param mixed $parameterBytes The Parameter Bytes
      */
     public function __construct($parameterBytes)
     {
@@ -25,7 +29,7 @@ class EL extends Base
 
         // Call Parent Constructor (which will store finalByte)
         parent::__construct(
-            \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte::EL
+            FinalByte::EL
         );
     }
 }

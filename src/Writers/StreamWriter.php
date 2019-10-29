@@ -2,6 +2,8 @@
 
 namespace Bramus\Ansi\Writers;
 
+use InvalidArgumentException;
+
 /**
  * Writes data to a stream
  */
@@ -33,6 +35,7 @@ class StreamWriter implements WriterInterface
     /**
      * Set the stream to write to
      * @param mixed $stream Stream to write to
+     * @return StreamWriter
      */
     public function setStream($stream = null)
     {
@@ -43,7 +46,7 @@ class StreamWriter implements WriterInterface
 
         // Make sure the stream is a resource
         if (!is_resource($stream)) {
-            throw new \InvalidArgumentException('Invalid Stream');
+            throw new InvalidArgumentException('Invalid Stream');
         }
 
         // Store it
@@ -64,7 +67,7 @@ class StreamWriter implements WriterInterface
 
     /**
      * Write Data
-     * @param  string          $data Data to write
+     * @param string $data Data to write
      * @return WriterInterface Self, for chaining
      */
     public function write($data)

@@ -2,17 +2,20 @@
 
 namespace Bramus\Ansi\Traits\EscapeSequences;
 
+use Bramus\Ansi\Ansi;
 use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\ED as EnumED;
+use Bramus\Ansi\Writers\WriterInterface;
 
 /**
  * Trait containing the ED Escape Function Shorthands
+ * @property WriterInterface $writer
  */
 trait ED
 {
     /**
      * Manually use ED (Select Graphic Rendition)
-     * @param  array $parameterByte Parameter byte to the SGR Escape Code
-     * @return Ansi  self, for chaining
+     * @param array|string $data Parameter byte to the SGR Escape Code
+     * @return Ansi|ED self, for chaining
      */
     public function ed($data)
     {

@@ -1,11 +1,10 @@
 <?php
 
-use \Bramus\Ansi\ControlFunctions\Enums\C0;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\SGR as EscapeSequenceSGR;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\SGR;
+use Bramus\Ansi\ControlFunctions\Enums\C0;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
+use Bramus\Ansi\ControlSequences\EscapeSequences\SGR as EscapeSequenceSGR;
 
-class EscapeSequenceWithParameterBytesTest extends PHPUnit_Framework_TestCase
+class EscapeSequenceWithParameterBytesTest extends PHPUnit\Framework\TestCase
 {
     public function testParameterBytesSingle()
     {

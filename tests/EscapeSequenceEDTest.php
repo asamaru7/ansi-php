@@ -1,13 +1,13 @@
 <?php
 
-use \Bramus\Ansi\Ansi;
-use \Bramus\Ansi\Writers\StreamWriter;
-use \Bramus\Ansi\ControlFunctions\Enums\C0;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\ED as EscapeSequenceED;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\ED;
+use Bramus\Ansi\Ansi;
+use Bramus\Ansi\ControlFunctions\Enums\C0;
+use Bramus\Ansi\ControlSequences\EscapeSequences\ED as EscapeSequenceED;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\ED;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
+use Bramus\Ansi\Writers\BufferWriter;
 
-class EscapeSequenceEDTest extends PHPUnit_Framework_TestCase
+class EscapeSequenceEDTest extends PHPUnit\Framework\TestCase
 {
 
     public function testInstantiation()
@@ -34,25 +34,25 @@ class EscapeSequenceEDTest extends PHPUnit_Framework_TestCase
         // ED::ALL
         $this->assertEquals(
             new EscapeSequenceED(ED::ALL),
-            C0::ESC.'['.ED::ALL.FinalByte::ED
+            C0::ESC . '[' . ED::ALL . FinalByte::ED
         );
 
         // ED::UP
         $this->assertEquals(
             new EscapeSequenceED(ED::UP),
-            C0::ESC.'['.ED::UP.FinalByte::ED
+            C0::ESC . '[' . ED::UP . FinalByte::ED
         );
 
         // ED::DOWN
         $this->assertEquals(
             new EscapeSequenceED(ED::DOWN),
-            C0::ESC.'['.ED::DOWN.FinalByte::ED
+            C0::ESC . '[' . ED::DOWN . FinalByte::ED
         );
     }
 
     public function testAnsiEDShorthandsSingle()
     {
-        $a = new Ansi(new \Bramus\Ansi\Writers\BufferWriter());
+        $a = new Ansi(new BufferWriter());
 
         $this->assertEquals(
             $a->eraseDisplayUp()->get(),
@@ -72,23 +72,23 @@ class EscapeSequenceEDTest extends PHPUnit_Framework_TestCase
 
     public function testAnsiEDShorthandChained()
     {
-        $a = new Ansi(new \Bramus\Ansi\Writers\BufferWriter());
+        $a = new Ansi(new BufferWriter());
         $es = new EscapeSequenceED(ED::ALL);
 
         $this->assertEquals(
             $a->ed(ED::ALL)->text('test')->get(),
-            $es.'test'
+            $es . 'test'
         );
     }
 
     public function testAnsiEDShorthandsChained()
     {
 
-        $a = new Ansi(new \Bramus\Ansi\Writers\BufferWriter());
+        $a = new Ansi(new BufferWriter());
 
         $this->assertEquals(
             $a->eraseDisplayUp()->eraseDisplayDown()->eraseDisplay()->text('test')->get(),
-            (new EscapeSequenceED(ED::UP)).(new EscapeSequenceED(ED::DOWN)).(new EscapeSequenceED(ED::ALL)).'test'
+            (new EscapeSequenceED(ED::UP)) . (new EscapeSequenceED(ED::DOWN)) . (new EscapeSequenceED(ED::ALL)) . 'test'
         );
     }
 }

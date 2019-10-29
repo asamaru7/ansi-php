@@ -1,12 +1,10 @@
 <?php
 
-use \Bramus\Ansi\Ansi;
-use \Bramus\Ansi\Writers\StreamWriter;
-use \Bramus\Ansi\ControlFunctions\Enums\C0;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Base as EscapeSequence;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
+use Bramus\Ansi\ControlFunctions\Enums\C0;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Base as EscapeSequence;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
 
-class EscapeSequenceTest extends PHPUnit_Framework_TestCase
+class EscapeSequenceTest extends PHPUnit\Framework\TestCase
 {
 
     public function testInstantiation()

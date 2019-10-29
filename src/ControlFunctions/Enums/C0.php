@@ -5,6 +5,7 @@
  * Based upon http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-048.pdf, section 5.2
  *
  */
+
 namespace Bramus\Ansi\ControlFunctions\Enums;
 
 class C0
@@ -19,7 +20,7 @@ class C0
      *
      * @var String
      */
-    const NUL = "\000";
+    public const NUL = "\000";
 
     /**
      * START OF HEADING
@@ -29,7 +30,7 @@ class C0
      *
      * @var String
      */
-    const SOH = "\001";
+    public const SOH = "\001";
 
     /**
      * START OF TEXT
@@ -39,7 +40,7 @@ class C0
      *
      * @var String
      */
-    const STX = "\002";
+    public const STX = "\002";
 
     /**
      * END OF TEXT
@@ -49,7 +50,7 @@ class C0
      *
      * @var String
      */
-    const ETX = "\003";
+    public const ETX = "\003";
 
     /**
      * END OF TRANSMISSION
@@ -59,7 +60,7 @@ class C0
      *
      * @var String
      */
-    const EOT = "\004";
+    public const EOT = "\004";
 
     /**
      * ENQUIRY
@@ -69,7 +70,7 @@ class C0
      *
      * @var String
      */
-    const ENQ = "\005";
+    public const ENQ = "\005";
 
     /**
      * ACKNOWLEDGE
@@ -79,7 +80,7 @@ class C0
      *
      * @var String
      */
-    const ACK = "\006";
+    public const ACK = "\006";
 
     /**
      * BELL
@@ -89,8 +90,8 @@ class C0
      *
      * @var string
      */
-    const BEL = "\007";
-    const BELL = "\007";
+    public const BEL = "\007";
+    public const BELL = "\007";
 
     /**
      * BACKSPACE
@@ -100,8 +101,8 @@ class C0
      *
      * @var string
      */
-    const BS = "\010";
-    const BACKSPACE = "\010";
+    public const BS = "\010";
+    public const BACKSPACE = "\010";
 
     /**
      * CHARACTER TABULATION (HORIZONTAL TAB)
@@ -111,8 +112,8 @@ class C0
      *
      * @var string
      */
-    const HT = "\011";
-    const TAB = "\011";
+    public const HT = "\011";
+    public const TAB = "\011";
 
     /**
      * LINE FEED
@@ -122,7 +123,7 @@ class C0
      *
      * @var string
      */
-    const LF = "\012";
+    public const LF = "\012";
 
     /**
      * LINE TABULATION (VERTICAL TAB)
@@ -133,7 +134,7 @@ class C0
      *
      * @var String
      */
-    const VT = "\013";
+    public const VT = "\013";
 
     /**
      * FORM FEED
@@ -144,7 +145,7 @@ class C0
      *
      * @var String
      */
-    const FF = "\014";
+    public const FF = "\014";
 
     /**
      * CARRIAGE RETURN
@@ -154,7 +155,7 @@ class C0
      *
      * @var string
      */
-    const CR = "\015";
+    public const CR = "\015";
 
     /**
      * LOCKING-SHIFT ONE
@@ -165,7 +166,7 @@ class C0
      *
      * @var String
      */
-    const LS1 = "\016";
+    public const LS1 = "\016";
 
     /**
      * LOCKING-SHIFT ZERO
@@ -176,7 +177,7 @@ class C0
      *
      * @var String
      */
-    const LS0 = "\017";
+    public const LS0 = "\017";
 
     /**
      * DATA LINK ESCAPE
@@ -186,7 +187,7 @@ class C0
      *
      * @var String
      */
-    const DLE = "\020";
+    public const DLE = "\020";
 
     /**
      * DEVICE CONTROL ONE
@@ -198,7 +199,7 @@ class C0
      *
      * @var String
      */
-    const DC1 = "\021";
+    public const DC1 = "\021";
 
     /**
      * DEVICE CONTROL TWO
@@ -211,7 +212,7 @@ class C0
      *
      * @var String
      */
-    const DC2 = "\022";
+    public const DC2 = "\022";
 
     /**
      * DEVICE CONTROL THREE
@@ -224,7 +225,7 @@ class C0
      *
      * @var String
      */
-    const DC3 = "\023";
+    public const DC3 = "\023";
 
     /**
      * DEVICE CONTROL FOUR
@@ -235,7 +236,7 @@ class C0
      *
      * @var String
      */
-    const DC4 = "\024";
+    public const DC4 = "\024";
 
     /**
      * NEGATIVE ACKNOWLEDGE
@@ -245,7 +246,7 @@ class C0
      *
      * @var String
      */
-    const NAK = "\025";
+    public const NAK = "\025";
 
     /**
      * SYNCHRONOUS IDLE
@@ -257,7 +258,7 @@ class C0
      *
      * @var String
      */
-    const SYN = "\026";
+    public const SYN = "\026";
 
     /**
      * END OF TRANSMISSION BLOCK
@@ -268,7 +269,7 @@ class C0
      *
      * @var String
      */
-    const ETB = "\027";
+    public const ETB = "\027";
 
     /**
      * CANCEL
@@ -280,8 +281,8 @@ class C0
      *
      * @var String
      */
-    const CAN = "\030";
-    const CANCEL = "\030";
+    public const CAN = "\030";
+    public const CANCEL = "\030";
 
     /**
      * END OF MEDIUM
@@ -292,7 +293,7 @@ class C0
      *
      * @var String
      */
-    const EM = "\031";
+    public const EM = "\031";
 
     /**
      * SUBSTITUTE
@@ -302,7 +303,7 @@ class C0
      *
      * @var String
      */
-    const SUB = "\032";
+    public const SUB = "\032";
 
     /**
      * ESCAPE
@@ -313,7 +314,7 @@ class C0
      *
      * @var string
      */
-    const ESC = "\033";
+    public const ESC = "\033";
 
     /**
      * INFORMATION SEPARATOR FOUR (FS - FILE SEPARATOR)
@@ -324,7 +325,7 @@ class C0
      *
      * @var String
      */
-    const IS4 = "\034";
+    public const IS4 = "\034";
 
     /**
      * INFORMATION SEPARATOR THREE (GS - GROUP SEPARATOR)
@@ -335,7 +336,7 @@ class C0
      *
      * @var String
      */
-    const IS3 = "\035";
+    public const IS3 = "\035";
 
     /**
      * INFORMATION SEPARATOR TWO (RS - RECORD SEPARATOR)
@@ -346,7 +347,7 @@ class C0
      *
      * @var String
      */
-    const IS2 = "\036";
+    public const IS2 = "\036";
 
     /**
      * INFORMATION SEPARATOR ONE (US - UNIT SEPARATOR)
@@ -357,5 +358,5 @@ class C0
      *
      * @var String
      */
-    const IS1 = "\037";
+    public const IS1 = "\037";
 }

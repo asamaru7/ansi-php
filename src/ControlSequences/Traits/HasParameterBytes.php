@@ -2,6 +2,8 @@
 
 namespace Bramus\Ansi\ControlSequences\Traits;
 
+use Bramus\Ansi\ControlSequences\Base as ControlSequencesBase;
+
 trait HasParameterBytes
 {
     /**
@@ -12,24 +14,24 @@ trait HasParameterBytes
 
     /**
      * Add a Parameter Byte
-     * @param  string $parameterByte The byte to add
-     * @return Base   self, for chaining
+     * @param string $parameterByte The byte to add
+     * @return ControlSequencesBase|HasParameterBytes   self, for chaining
      */
     public function addParameterByte($parameterByte)
     {
-        $this->parameterBytes[] = (string) $parameterByte;
+        $this->parameterBytes[] = (string)$parameterByte;
 
         return $this;
     }
 
     /**
      * Set the Parameter Byte
-     * @param  array $parameterByte The byte to add
-     * @return Base  self, for chaining
+     * @param array $parameterBytes The byte to add
+     * @return ControlSequencesBase|HasParameterBytes  self, for chaining
      */
     public function setParameterBytes($parameterBytes)
     {
-        foreach ((array) $parameterBytes as $byte) {
+        foreach ((array)$parameterBytes as $byte) {
             $this->addParameterByte($byte);
         }
 
@@ -38,8 +40,8 @@ trait HasParameterBytes
 
     /**
      * Get the Parameter Byte
-     * @param  bool $asString As a string, or as an array?
-     * @return Base self, for chaining
+     * @param bool $asString As a string, or as an array?
+     * @return array|string
      */
     public function getParameterBytes($asString = true)
     {

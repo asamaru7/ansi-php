@@ -2,17 +2,20 @@
 
 namespace Bramus\Ansi\Traits\EscapeSequences;
 
+use Bramus\Ansi\Ansi;
 use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\SGR as EnumSGR;
+use Bramus\Ansi\Writers\WriterInterface;
 
 /**
  * Trait containing the SGR Escape Function Shorthands
+ * @property WriterInterface $writer
  */
 trait SGR
 {
     /**
      * Manually use SGR (Select Graphic Rendition)
-     * @param  array $parameterByte Parameter byte to the SGR Escape Code
-     * @return Ansi  self, for chaining
+     * @param array $data Parameter byte to the SGR Escape Code
+     * @return Ansi|SGR self, for chaining
      */
     public function sgr($data = array())
     {
@@ -45,7 +48,7 @@ trait SGR
 
     /**
      * Shorthand to set the color.
-     * @param  array $color The color you want to set. Use an array filled with ControlSequences\EscapeSequences\Enums\SGR::COLOR_* constants
+     * @param array $color The color you want to set. Use an array filled with ControlSequences\EscapeSequences\Enums\SGR::COLOR_* constants
      * @return Ansi  self, for chaining
      */
     public function color($color = array())

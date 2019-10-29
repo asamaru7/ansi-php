@@ -7,6 +7,7 @@
  * representation consisting of one or more bit combinations.
  *
  */
+
 namespace Bramus\Ansi\ControlFunctions;
 
 class Base
@@ -30,6 +31,7 @@ class Base
     /**
      * Set the control character
      * @param string $controlCharacter The Control Character
+     * @return Base
      */
     public function setControlCharacter($controlCharacter)
     {

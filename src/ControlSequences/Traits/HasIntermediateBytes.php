@@ -2,6 +2,8 @@
 
 namespace Bramus\Ansi\ControlSequences\Traits;
 
+use Bramus\Ansi\ControlSequences\Base as ControlSequencesBase;
+
 trait HasIntermediateBytes
 {
     /**
@@ -12,24 +14,24 @@ trait HasIntermediateBytes
 
     /**
      * Add a Intermediate Byte
-     * @param  string $intermediateByte The byte to add
-     * @return Base   self, for chaining
+     * @param string $intermediateByte The byte to add
+     * @return ControlSequencesBase|HasIntermediateBytes   self, for chaining
      */
     public function addIntermediateByte($intermediateByte)
     {
-        $this->intermediateBytes[] = (string) $intermediateByte;
+        $this->intermediateBytes[] = (string)$intermediateByte;
 
         return $this;
     }
 
     /**
      * Set the Intermediate Byte
-     * @param  array $parameterByte The byte to add
-     * @return Base  self, for chaining
+     * @param array $intermediateBytes The byte to add
+     * @return ControlSequencesBase|HasIntermediateBytes  self, for chaining
      */
     public function setIntermediateBytes($intermediateBytes)
     {
-        foreach ((array) $intermediateBytes as $byte) {
+        foreach ((array)$intermediateBytes as $byte) {
             $this->addIntermediateByte($byte);
         }
 
@@ -38,8 +40,8 @@ trait HasIntermediateBytes
 
     /**
      * Get the Intermediate Byte
-     * @param  bool $asString As a string, or as an array?
-     * @return Base self, for chaining
+     * @param bool $asString As a string, or as an array?
+     * @return array|string
      */
     public function getIntermediateBytes($asString = true)
     {

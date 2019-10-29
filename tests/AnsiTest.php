@@ -1,14 +1,12 @@
 <?php
 
-use \Bramus\Ansi\Ansi;
-use \Bramus\Ansi\Writers\StreamWriter;
-use \Bramus\Ansi\Writers\BufferWriter;
-use \Bramus\Ansi\ControlFunctions\Enums\C0;
+use Bramus\Ansi\Ansi;
+use Bramus\Ansi\Writers\BufferWriter;
 
 /**
  * Test the Ansi Class and its core functions
  */
-class AnsiTest extends PHPUnit_Framework_TestCase
+class AnsiTest extends PHPUnit\Framework\TestCase
 {
 
     public function testInstantiation()
@@ -26,10 +24,10 @@ class AnsiTest extends PHPUnit_Framework_TestCase
 
     }
 
-    public function testFunctions()
-    {
-
-    }
+//    public function testFunctions()
+//    {
+//
+//    }
 
     public function testChaining()
     {

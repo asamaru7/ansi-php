@@ -2,6 +2,7 @@
 /**
  *
  */
+
 namespace Bramus\Ansi\ControlFunctions;
 
 class Bell extends Base

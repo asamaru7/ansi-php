@@ -2,17 +2,20 @@
 
 namespace Bramus\Ansi\Traits\EscapeSequences;
 
+use Bramus\Ansi\Ansi;
 use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\EL as EnumEL;
+use Bramus\Ansi\Writers\WriterInterface;
 
 /**
  * Trait containing the EL Escape Function Shorthands
+ * @property WriterInterface $writer
  */
 trait EL
 {
     /**
      * Manually use EL (ERASE IN LINE)
-     * @param  array $parameterByte Parameter byte to the EL Escape Code
-     * @return Ansi  self, for chaining
+     * @param array|string $data Parameter byte to the EL Escape Code
+     * @return Ansi|EL self, for chaining
      */
     public function el($data)
     {
@@ -27,7 +30,6 @@ trait EL
 
     /**
      * Erase from the current cursor position to the end of the current line.
-     * @param  boolean $outputNow Echo the character right now, or add it to the buffer building?
      * @return Ansi    self, for chaining
      */
     public function eraseLineToEOL()
@@ -37,7 +39,6 @@ trait EL
 
     /**
      * Erases from the current cursor position to the start of the current line.
-     * @param  boolean $outputNow Echo the character right now, or add it to the buffer building?
      * @return Ansi    self, for chaining
      */
     public function eraseLineToSOL()
@@ -47,7 +48,6 @@ trait EL
 
     /**
      * Erase the entire current line.
-     * @param  boolean $outputNow Echo the character right now, or add it to the buffer building?
      * @return Ansi    self, for chaining
      */
     public function eraseLine()

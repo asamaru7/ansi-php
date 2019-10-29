@@ -15,7 +15,7 @@ class BufferWriter implements WriterInterface, FlushableInterface
 
     /**
      * Write Data
-     * @param  string          $data Data to write
+     * @param string $data Data to write
      * @return WriterInterface Self, for chaining
      */
     public function write($data)
@@ -29,7 +29,7 @@ class BufferWriter implements WriterInterface, FlushableInterface
 
     /**
      * Get/Flush the data
-     * @param  boolean $resetAfterwards Reset the data afterwards?
+     * @param boolean $resetAfterwards Reset the data afterwards?
      * @return string  The data
      */
     public function flush($resetAfterwards = true)
@@ -48,7 +48,7 @@ class BufferWriter implements WriterInterface, FlushableInterface
 
     /**
      * Reset/Clear the buffer
-     * @return BufferedStreamWriter self, for chaining
+     * @return BufferWriter self, for chaining
      */
     public function clear()
     {

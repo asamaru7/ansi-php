@@ -1,13 +1,13 @@
 <?php
 
-use \Bramus\Ansi\Ansi;
-use \Bramus\Ansi\Writers\StreamWriter;
-use \Bramus\Ansi\ControlFunctions\Enums\C0;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\EL as EscapeSequenceEL;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
-use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\EL;
+use Bramus\Ansi\Ansi;
+use Bramus\Ansi\ControlFunctions\Enums\C0;
+use Bramus\Ansi\ControlSequences\EscapeSequences\EL as EscapeSequenceEL;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\EL;
+use Bramus\Ansi\ControlSequences\EscapeSequences\Enums\FinalByte;
+use Bramus\Ansi\Writers\BufferWriter;
 
-class EscapeSequenceELTest extends PHPUnit_Framework_TestCase
+class EscapeSequenceELTest extends PHPUnit\Framework\TestCase
 {
 
     public function testInstantiation()
@@ -34,25 +34,25 @@ class EscapeSequenceELTest extends PHPUnit_Framework_TestCase
         // EL::ALL
         $this->assertEquals(
             new EscapeSequenceEL(EL::ALL),
-            C0::ESC.'['.EL::ALL.FinalByte::EL
+            C0::ESC . '[' . EL::ALL . FinalByte::EL
         );
 
         // EL::TO_EOL
         $this->assertEquals(
             new EscapeSequenceEL(EL::TO_EOL),
-            C0::ESC.'['.EL::TO_EOL.FinalByte::EL
+            C0::ESC . '[' . EL::TO_EOL . FinalByte::EL
         );
 
         // EL::TO_SOL
         $this->assertEquals(
             new EscapeSequenceEL(EL::TO_SOL),
-            C0::ESC.'['.EL::TO_SOL.FinalByte::EL
+            C0::ESC . '[' . EL::TO_SOL . FinalByte::EL
         );
     }
 
     public function testAnsiELShorthandsSingle()
     {
-        $a = new Ansi(new \Bramus\Ansi\Writers\BufferWriter());
+        $a = new Ansi(new BufferWriter());
 
         $this->assertEquals(
             $a->eraseLine()->get(),
@@ -72,23 +72,23 @@ class EscapeSequenceELTest extends PHPUnit_Framework_TestCase
 
     public function testAnsiELShorthandChained()
     {
-        $a = new Ansi(new \Bramus\Ansi\Writers\BufferWriter());
+        $a = new Ansi(new BufferWriter());
         $es = new EscapeSequenceEL(EL::ALL);
 
         $this->assertEquals(
             $a->el(EL::ALL)->text('test')->get(),
-            $es.'test'
+            $es . 'test'
         );
     }
 
     public function testAnsiELShorthandsChained()
     {
 
-        $a = new Ansi(new \Bramus\Ansi\Writers\BufferWriter());
+        $a = new Ansi(new BufferWriter());
 
         $this->assertEquals(
             $a->eraseLine()->eraseLineToEol()->eraseLineToSol()->text('test')->get(),
-            (new EscapeSequenceEL(EL::ALL)).(new EscapeSequenceEL(EL::TO_EOL)).(new EscapeSequenceEL(EL::TO_SOL)).'test'
+            (new EscapeSequenceEL(EL::ALL)) . (new EscapeSequenceEL(EL::TO_EOL)) . (new EscapeSequenceEL(EL::TO_SOL)) . 'test'
         );
     }
 }

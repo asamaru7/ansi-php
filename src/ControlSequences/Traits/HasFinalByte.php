@@ -2,6 +2,8 @@
 
 namespace Bramus\Ansi\ControlSequences\Traits;
 
+use Bramus\Ansi\ControlSequences\Base as ControlSequencesBase;
+
 trait HasFinalByte
 {
     /**
@@ -12,8 +14,8 @@ trait HasFinalByte
 
     /**
      * Set the finalByte
-     * @param  string $finalByte The bit combination that terminates an escape sequence or a control sequence.
-     * @return Base   self, for chaining
+     * @param string $finalByte The bit combination that terminates an escape sequence or a control sequence.
+     * @return ControlSequencesBase|HasFinalByte   self, for chaining
      */
     public function setFinalByte($finalByte)
     {

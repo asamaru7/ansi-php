@@ -9,7 +9,7 @@ interface WriterInterface
 {
     /**
      * Write Data
-     * @param  string          $data Data to write
+     * @param string $data Data to write
      * @return WriterInterface Self, for chaining
      */
     public function write($data);

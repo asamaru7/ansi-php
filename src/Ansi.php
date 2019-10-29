@@ -2,6 +2,10 @@
 
 namespace Bramus\Ansi;
 
+use Bramus\Ansi\Writers\WriterInterface;
+use RuntimeException;
+use Throwable;
+
 /**
  * ANSI Wrapper Class to work with \Bramus\Ansi more easily
  */
@@ -17,13 +21,13 @@ class Ansi
 
     /**
      * The writer to write the data to
-     * @var Writer\WriterInterface
+     * @var WriterInterface
      */
     protected $writer;
 
     /**
      * ANSI Wrapper Class to work with \Bramus\Ansi more easily
-     * @param Writer\WriterInterface $writer writer to use
+     * @param WriterInterface $writer writer to use
      */
     public function __construct($writer = null)
     {
@@ -38,7 +42,7 @@ class Ansi
 
     /**
      * Sets the writer
-     * @param Writer\WriterInterface $writer The writer to use
+     * @param WriterInterface $writer The writer to use
      */
     public function setWriter(Writers\WriterInterface $writer)
     {
@@ -47,7 +51,7 @@ class Ansi
 
     /**
      * Gets the writer
-     * @return Writer\WriterInterface $writer The writer used
+     * @return WriterInterface $writer The writer used
      */
     public function getWriter()
     {
@@ -56,7 +60,7 @@ class Ansi
 
     /**
      * Write a piece of text onto the writer
-     * @param  string $text The text to write
+     * @param string $text The text to write
      * @return Ansi   self, for chaining
      */
     public function text($text)
@@ -70,7 +74,7 @@ class Ansi
 
     /**
      * Flush the contents of the writer
-     * @param  $resetAfterwards Reset the writer contents after flushing?
+     * @param boolean $resetAfterwards Reset the writer contents after flushing?
      * @return string The writer contents
      */
     public function flush($resetAfterwards = true)
@@ -78,34 +82,31 @@ class Ansi
         if ($this->writer instanceof Writers\FlushableInterface) {
             return $this->writer->flush($resetAfterwards);
         } else {
-            throw new \Exception('Flushing a non FlushableInterface is not possible');
-        }
-    }
-
-    public function get($resetAfterwards = true)
-    {
-        try {
-            return $this->flush($resetAfterwards);
-        } catch (\Exception $e) {
-            throw $e;
+            throw new RuntimeException('Flushing a non FlushableInterface is not possible');
         }
     }
 
     /**
+     * @param bool $resetAfterwards
+     * @return string
+     */
+    public function get($resetAfterwards = true)
+    {
+        return $this->flush($resetAfterwards);
+    }
+
+    /**
      * Echo the contents of the writer
-     * @param  $resetAfterwards Reset the writer contents after flushing?
+     * @param boolean $resetAfterwards Reset the writer contents after flushing?
      * @return Ansi self, for chaining
+     * @throws Throwable
      */
     public function e($resetAfterwards = true)
     {
-        try {
-            // Get the contents and echo them
-            echo $this->flush($resetAfterwards);
+        // Get the contents and echo them
+        echo $this->flush($resetAfterwards);
 
-            // Afford chaining
-            return $this;
-        } catch (\Exception $e) {
-            throw $e;
-        }
+        // Afford chaining
+        return $this;
     }
 }

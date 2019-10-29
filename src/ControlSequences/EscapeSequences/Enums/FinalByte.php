@@ -2,6 +2,7 @@
 /**
  * Possible Final Byte Values for Escape Sequences
  */
+
 namespace Bramus\Ansi\ControlSequences\EscapeSequences\Enums;
 
 class FinalByte
@@ -16,7 +17,7 @@ class FinalByte
      *
      * @type string
      */
-    const ED = 'J';
+    public const ED = 'J';
 
     /**
      * EL - ERASE IN LINE
@@ -27,7 +28,7 @@ class FinalByte
      *
      * @type string
      */
-    const EL = 'K';
+    public const EL = 'K';
 
     /**
      * SGR - SELECT GRAPHIC RENDITION
@@ -40,7 +41,7 @@ class FinalByte
      *
      * @type string
      */
-    const SGR = 'm';
+    public const SGR = 'm';
 
     // @TODO: Add more Escape Code Final Bytes
     // @see http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-048.pdf

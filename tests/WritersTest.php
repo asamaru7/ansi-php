@@ -1,10 +1,10 @@
 <?php
 
-use \Bramus\Ansi\Writers\StreamWriter;
-use \Bramus\Ansi\Writers\BufferWriter;
-use \Bramus\Ansi\Writers\ProxyWriter;
+use Bramus\Ansi\Writers\BufferWriter;
+use Bramus\Ansi\Writers\ProxyWriter;
+use Bramus\Ansi\Writers\StreamWriter;
 
-class WritersTest extends PHPUnit_Framework_TestCase
+class WritersTest extends PHPUnit\Framework\TestCase
 {
     public function testStreamWriter()
     {
