@@ -1,6 +1,6 @@
 # ANSI PHP
 
-[![Build Status](https://img.shields.io/travis/bramus/ansi-php.svg?style=flat-square)](http://travis-ci.org/bramus/ansi-php) [![Source](http://img.shields.io/badge/source-bramus/ansi--php-blue.svg?style=flat-square)](https://github.com/bramus/ansi-php) [![Version](https://img.shields.io/packagist/v/bramus/ansi-php.svg?style=flat-square)](https://packagist.org/packages/bramus/ansi-php) [![Downloads](https://img.shields.io/packagist/dt/bramus/ansi-php.svg?style=flat-square)](https://packagist.org/packages/bramus/ansi-php/stats) [![License](https://img.shields.io/packagist/l/bramus/ansi-php.svg?style=flat-square)](https://github.com/bramus/ansi-php/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/asamaru7/ansi-php.svg?style=flat-square)](http://travis-ci.org/asamaru7/ansi-php) [![Source](http://img.shields.io/badge/source-bramus/ansi--php-blue.svg?style=flat-square)](https://github.com/asamaru7/ansi-php) [![Version](https://img.shields.io/packagist/v/asamaru7/ansi-php.svg?style=flat-square)](https://packagist.org/packages/asamaru7/ansi-php) [![Downloads](https://img.shields.io/packagist/dt/asamaru7/ansi-php.svg?style=flat-square)](https://packagist.org/packages/asamaru7/ansi-php/stats) [![License](https://img.shields.io/packagist/l/asamaru7/ansi-php.svg?style=flat-square)](https://github.com/asamaru7/ansi-php/blob/master/LICENSE)
 
 ANSI Control Functions and ANSI Control Sequences for PHP CLI Apps
 
@@ -47,7 +47,7 @@ An example library that uses `bramus/ansi-php` is [`bramus/monolog-colored-line-
 Installation is possible using Composer
 
 ```shell
-composer require asamaru7/ansi-php ~3.0
+composer require asamaru7/ansi-php
 ```
 
 ## Usage
